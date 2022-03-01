@@ -63,6 +63,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    Float rslt   = new Float(0.0);
    Float lhsVal = new Float(0.0);
    Float rhsVal = new Float(0.0);
+   String results = "";
    String operation = request.getParameter("Operation");
    String lhsStr = request.getParameter("LHS");
    String rhsStr = request.getParameter("RHS");
@@ -74,16 +75,18 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    if (operation.equals(OperationAdd))
    {
       rslt = new Float(lhsVal.floatValue() + rhsVal.floatValue());
+      results = rhsStr + lhsStr;
    }
    else if (operation.equals(OperationSub))
    {
       rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
+      results = lhsStr + rhsStr;
    }
 
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
    PrintHead(out);
-   PrintBody(out, lhsStr, rhsStr, rslt.toString());
+   PrintBody(out, lhsStr, rhsStr, results);
    PrintTail(out);
 }  // End doPost
 
