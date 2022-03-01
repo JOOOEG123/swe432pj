@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 
 // The @WebServletannotation is used to declare a servlet
 @WebServlet(name = "FirstServlet", urlPatterns = {"/Hello"})
-public class Hello extends HttpServlet // Inheriting from HttpServlet makes this a servlet
+public class JoelHello extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
 public void doGet (HttpServletRequest request, HttpServletResponse response)
                    throws ServletException, IOException
