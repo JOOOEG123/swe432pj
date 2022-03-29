@@ -46,6 +46,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println("</body>");
       out.println("</html>");
       out.close();
+      return;
    } //end if
    
    String name   = request.getParameter("attrib_name");
