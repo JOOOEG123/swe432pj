@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 // Import Java Libraries
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Enumeration;
 @WebServlet(name = "attributeServlet", urlPatterns = {"/attributeServlet"})
 public class attributeServlet extends HttpServlet
@@ -20,7 +21,10 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    HttpSession session = request.getSession();
 
    String name   = request.getParameter("attrib_name");
-   String value  = request.getParameter("attrib_value");
+   ArrayList<String> attributesd = new ArrayList<String>();
+   // String value  = request.getParameter("attrib_value");
+   attributesd.add((String) request.getParameter("attrib_value"));
+   attributesd.add((String) request.getParameter("attrib_age"));
    String remove = request.getParameter("attrib_remove");
 
    if (remove != null && remove.equals("on"))
@@ -29,9 +33,9 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    }
    else
    {
-      if ((name != null && name.length() > 0) && (value != null && value.length() > 0))
+      if ((name != null && name.length() > 0) && (!attributesd.isEmpty()))
       {
-         session.setAttribute(name, value);
+         session.setAttribute(name, attributesd);
       }
 
    }
