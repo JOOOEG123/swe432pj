@@ -64,6 +64,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    out.println(" Value: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
+   out.println(" Age: ");
+   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_age\">");
 
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
    out.println(" <input type=\"submit\" name=\"update\" value=\"Update\">");
@@ -75,12 +77,13 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    while (e.hasMoreElements())
    {
       String att_name  = (String) e.nextElement();
-      String att_value = (String) session.getAttribute(att_name);
+      ArrayList<String> att_value = (ArrayList<String>) session.getAttribute(att_name);
+      // String att_value = (String) session.getAttribute(att_name);
 
       out.print  ("<br><b>Name:</b> ");
-      out.println(att_name);
+      out.println(att_value.get(0));
       out.print  ("<br><b>Value:</b> ");
-      out.println(att_value);
+      out.println(att_value.get(1));
    } //end while
 
    out.println("</body>");
