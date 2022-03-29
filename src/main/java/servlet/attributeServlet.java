@@ -40,8 +40,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
       // Create a link so the user can create a new session.
       // The link will have a parameter builtin
-      out.println("<a href=\"" + url + "?action=newSession\">");
-      out.println("Create new session</A>");
+      out.println("<a href=\"" + url + "?action=newSession\"> ");
+      out.println("Create new session</a>");
 
       out.println("</body>");
       out.println("</html>");
@@ -97,7 +97,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
    out.println(" <input type=\"submit\" name=\"update\" value=\"Update\">");
-   out.print  ("<br><br><a href=\"" + url + "?action=invalidate\">");
+   out.print  ("<br><br><a href=\"" + url + "?action=invalidate\">Invalidate session</a>");
    out.println("</form>");
    out.println("<hr>");
 
