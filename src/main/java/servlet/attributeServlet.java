@@ -19,6 +19,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 {
    // Get session object
    HttpSession session = request.getSession();
+   String url = response.encodeURL("attributeServlet");
    String action = request.getParameter("action");
    if (action != null && action.equals("invalidate"))
    {  // Called from the invalidate button, kill the session.
@@ -39,8 +40,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
       // Create a link so the user can create a new session.
       // The link will have a parameter builtin
-      String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
-      out.println("<a href=\"" + lifeCycleURL + "?action=newSession\">");
+      out.println("<a href=\"" + url + "?action=newSession\">");
       out.println("Create new session</A>");
 
       out.println("</body>");
@@ -85,7 +85,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println("Enter name and value of an attribute");
 
    // String url = response.encodeURL ("offutt/servlet/attributeServlet");
-   String url = response.encodeURL("attributeServlet");
+   
    out.println("<form action=\"" + url + "\" method=\"GET\">");
    out.println(" Name: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
