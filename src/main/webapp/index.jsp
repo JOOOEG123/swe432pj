@@ -16,6 +16,7 @@
   <p>Try a: </p>
   <div style="display: flex; flex-direction: column;">
     <button onclick="window.location.assign(servletURL+'/twoButtons');"> Two Buttons servlet </button>
+    <button onclick="window.location.assign(servletURL+'/attribute');"> Modify attributeServle </button>
     <button onclick="window.location.assign(servletURL+'/echo');">Echo POST requests servlet </button>
     <button onclick="window.location.assign(servletURL+'/Hello');">Welcome Joel's server </button>
     <button onclick="window.location.assign(servletURL+'/file');">File persistence servlet </button>
