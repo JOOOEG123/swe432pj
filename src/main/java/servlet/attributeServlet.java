@@ -21,6 +21,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    String name   = request.getParameter("attrib_name");
    String value  = request.getParameter("attrib_value");
+   String age  = request.getParameter("attrib_age");
    String remove = request.getParameter("attrib_remove");
 
    if (remove != null && remove.equals("on"))
@@ -31,7 +32,11 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    {
       if ((name != null && name.length() > 0) && (value != null && value.length() > 0))
       {
-         session.setAttribute(name, value);
+         String[] v= new String[3];
+         v[0]=name;
+         v[1]=value;
+         v[2]=age;
+         session.setAttribute(name, v);
       }
 
    }
@@ -71,12 +76,16 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    while (e.hasMoreElements())
    {
       String att_name  = (String) e.nextElement();
-      String att_value = (String) session.getAttribute(att_name);
+      String[] res = (String[]) session.getAttribute(att_name);
+      // String att_age = (String) session.getAttribute(att_name);
+
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
-      out.println(att_value);
+      out.println(res[1]);
+      out.print  ("<br><b>Age:</b> ");
+      out.println(res[2]);
    } //end while
 
    out.println("</body>");
