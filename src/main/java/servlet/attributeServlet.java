@@ -10,8 +10,8 @@ import javax.servlet.http.*;
 // Import Java Libraries
 import java.io.*;
 import java.util.Enumeration;
-@WebServlet(name = "AttributeServlet", urlPatterns = {"/attribute"})
-public class attributeServlet extends HttpServlet
+@WebServlet(name = "AttributeServlet", urlPatterns = {"/attributeServlet"})
+public class AttributeServlet extends HttpServlet
 {
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
@@ -53,7 +53,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println("Enter name and value of an attribute");
 
    // String url = response.encodeURL ("offutt/servlet/attributeServlet");
-   String url = response.encodeURL("/attributeServlet");
+   String url = response.encodeURL("attributeServlet");
    out.println("<form action=\"" + url + "\" method=\"GET\">");
    out.println(" Name: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
