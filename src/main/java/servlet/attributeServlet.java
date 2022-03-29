@@ -81,6 +81,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       // String att_value = (String) session.getAttribute(att_name);
 
       out.print  ("<br><b>Name:</b> ");
+      out.println(att_name);
+      out.print  ("<br><b>Value:</b> ");
       out.println(att_value.get(0));
       out.print  ("<br><b>Value:</b> ");
       out.println(att_value.get(1));
